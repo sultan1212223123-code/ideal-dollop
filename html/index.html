@@ -15,47 +15,121 @@
             </div>
 
             <div class="phone-content">
+                <!-- الشاشة الرئيسية -->
                 <div id="homeScreen" class="screen active">
                     <div class="apps">
+                        <button class="app" onclick="openPlayersMenu()">
+                            <div class="app-icon">👥</div>
+                            <div class="app-name">اللاعبون</div>
+                        </button>
                         <button class="app" onclick="openAdminMenu()">
                             <div class="app-icon">⚙️</div>
-                            <div class="app-name">Admin</div>
+                            <div class="app-name">الأدوات</div>
                         </button>
                     </div>
                 </div>
 
+                <!-- قائمة اللاعبين -->
+                <div id="playersScreen" class="screen">
+                    <div class="menu-header">
+                        <button class="back-btn" onclick="goHome()">← رجوع</button>
+                        <h2>اللاعبون</h2>
+                    </div>
+                    <div id="playersList" class="players-list">
+                        <!-- يتم ملأها ديناميكياً -->
+                    </div>
+                </div>
+
+                <!-- تفاصيل اللاعب -->
+                <div id="playerDetailScreen" class="screen">
+                    <div class="menu-header">
+                        <button class="back-btn" onclick="backToPlayers()">← رجوع</button>
+                        <h2 id="playerName">اللاعب</h2>
+                    </div>
+                    
+                    <div class="player-detail">
+                        <div class="player-info">
+                            <p>ID: <span id="playerId">--</span></p>
+                            <p>الاسم: <span id="playerDetailName">--</span></p>
+                        </div>
+
+                        <div class="player-actions">
+                            <button class="action-btn warn-btn" onclick="warnPlayer()">
+                                <span>⚠️</span> تحذير
+                            </button>
+                            <button class="action-btn freeze-btn" onclick="freezePlayer()">
+                                <span>❄️</span> تجميد
+                            </button>
+                            <button class="action-btn kick-btn" onclick="kickPlayer()">
+                                <span>👢</span> طرد
+                            </button>
+                            <button class="action-btn ban-btn" onclick="banPlayer()">
+                                <span>🚫</span> حظر
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- قائمة الأدوات -->
                 <div id="adminScreen" class="screen">
                     <div class="menu-header">
-                        <button class="back-btn" onclick="goBack()">← رجوع</button>
-                        <h2>الإدارة</h2>
+                        <button class="back-btn" onclick="goHome()">← رجوع</button>
+                        <h2>الأدوات الإدارية</h2>
                     </div>
                     
                     <div class="admin-menu">
-                        <button class="admin-option" onclick="adminAction('kick')">
-                            <span class="icon">👢</span>
-                            <span>طرد لاعب</span>
-                        </button>
-                        
-                        <button class="admin-option" onclick="adminAction('ban')">
-                            <span class="icon">🚫</span>
-                            <span>حظر لاعب</span>
-                        </button>
-                        
-                        <button class="admin-option" onclick="adminAction('announcement')">
+                        <button class="admin-option" onclick="openAnnouncement()">
                             <span class="icon">📢</span>
-                            <span>إعلان</span>
+                            <span>إعلان للجميع</span>
                         </button>
                         
-                        <button class="admin-option" onclick="adminAction('teleport')">
+                        <button class="admin-option" onclick="openTeleport()">
                             <span class="icon">📍</span>
-                            <span>نقل لموقع</span>
+                            <span>نقل</span>
                         </button>
+
+                        <button class="admin-option" onclick="openSettings()">
+                            <span class="icon">⚙️</span>
+                            <span>الإعدادات</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- الإعلانات -->
+                <div id="announcementScreen" class="screen">
+                    <div class="menu-header">
+                        <button class="back-btn" onclick="goToAdmin()">← رجوع</button>
+                        <h2>إعلان جديد</h2>
+                    </div>
+                    
+                    <div class="announcement-form">
+                        <textarea id="announcementText" placeholder="اكتب الإعلان هنا..." rows="4"></textarea>
+                        <button class="send-btn" onclick="sendAnnouncement()">إرسال الإعلان</button>
+                    </div>
+                </div>
+
+                <!-- الإعدادات -->
+                <div id="settingsScreen" class="screen">
+                    <div class="menu-header">
+                        <button class="back-btn" onclick="goToAdmin()">← رجوع</button>
+                        <h2>الإعدادات</h2>
+                    </div>
+                    
+                    <div class="settings">
+                        <div class="setting-item">
+                            <label>الصوت</label>
+                            <input type="range" min="0" max="100" value="50">
+                        </div>
+                        <div class="setting-item">
+                            <label>السطوع</label>
+                            <input type="range" min="0" max="100" value="75">
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="phone-footer">
-                <button class="home-btn" onclick="goBack()">●</button>
+                <button class="home-btn" onclick="goHome()">●</button>
             </div>
         </div>
     </div>
