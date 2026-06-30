@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="phone" class="phone hidden">
+        <div class="phone-screen">
+            <div class="phone-header">
+                <span>9:41</span>
+                <div class="status-icons">📶 📡 🔋</div>
+            </div>
+
+            <div class="phone-content">
+                <div id="homeScreen" class="screen active">
+                    <div class="apps">
+                        <button class="app" onclick="openAdminMenu()">
+                            <div class="app-icon">⚙️</div>
+                            <div class="app-name">Admin</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="adminScreen" class="screen">
+                    <div class="menu-header">
+                        <button class="back-btn" onclick="goBack()">← رجوع</button>
+                        <h2>الإدارة</h2>
+                    </div>
+                    
+                    <div class="admin-menu">
+                        <button class="admin-option" onclick="adminAction('kick')">
+                            <span class="icon">👢</span>
+                            <span>طرد لاعب</span>
+                        </button>
+                        
+                        <button class="admin-option" onclick="adminAction('ban')">
+                            <span class="icon">🚫</span>
+                            <span>حظر لاعب</span>
+                        </button>
+                        
+                        <button class="admin-option" onclick="adminAction('announcement')">
+                            <span class="icon">📢</span>
+                            <span>إعلان</span>
+                        </button>
+                        
+                        <button class="admin-option" onclick="adminAction('teleport')">
+                            <span class="icon">📍</span>
+                            <span>نقل لموقع</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phone-footer">
+                <button class="home-btn" onclick="goBack()">●</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
