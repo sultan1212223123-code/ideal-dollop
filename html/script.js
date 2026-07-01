@@ -1,4 +1,5 @@
 let currentSelectedPlayer = null;
+let resourceName = 'ideal-dollop';
 
 function openPlayersMenu() {
     document.getElementById('homeScreen').classList.remove('active');
@@ -51,7 +52,7 @@ function backToPlayers() {
 }
 
 function loadPlayers() {
-    fetch(`https://${GetParentResourceName()}/getPlayers`, {
+    fetch(`https://${resourceName}/getPlayers`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'
@@ -120,7 +121,7 @@ function banPlayer() {
 function adminAction(action, message) {
     if (!currentSelectedPlayer) return;
     
-    fetch(`https://${GetParentResourceName()}/adminAction`, {
+    fetch(`https://${resourceName}/adminAction`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'
@@ -143,7 +144,7 @@ function sendAnnouncement() {
         return;
     }
     
-    fetch(`https://${GetParentResourceName()}/adminAction`, {
+    fetch(`https://${resourceName}/adminAction`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'
@@ -171,7 +172,7 @@ window.addEventListener('message', function(event) {
 
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-        fetch(`https://${GetParentResourceName()}/closePhone`, {
+        fetch(`https://${resourceName}/closePhone`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8'
