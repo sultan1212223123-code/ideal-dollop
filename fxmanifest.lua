@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Sultan Ali'
-description 'iPhone Phone with Admin Menu'
+description 'iPhone Admin Phone'
 version '1.0.0'
 
 lua54 'yes'

@@ -1,7 +1,6 @@
 local phoneOpen = false
 local players = {}
 
--- تحديث قائمة اللاعبين
 Citizen.CreateThread(function()
     while true do
         Wait(1000)
@@ -18,7 +17,6 @@ Citizen.CreateThread(function()
     end
 end)
 
--- الضغط على زر K لتشغيل الهاتف
 Citizen.CreateThread(function()
     while true do
         Wait(0)
